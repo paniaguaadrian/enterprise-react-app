@@ -7,7 +7,6 @@ import NotFoundPage from './views/pages/NotFoundPage';
 
 // Dashboard Layout
 import Dashboard from './layouts/dashboard-layout/index';
-import DashboardDefaultContent from './views/dashboard/dashboard-default-content';
 import SettingsAndPrivacy from './views/dashboard/settings-and-privacy';
 
 import { LinearProgress } from '@material-ui/core';
