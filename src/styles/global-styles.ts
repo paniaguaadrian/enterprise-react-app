@@ -11,14 +11,13 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
-    background-color: ${p => p.theme.background};
+    background-color: white;
   }
 
   body.fontLoaded {
     font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-  
+
   p,
   label {
     line-height: 1.5em;
@@ -34,3 +33,9 @@ export const GlobalStyle = createGlobalStyle`
     height: 1.5rem;
   }
 `;
+
+//  body {
+//     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+//     padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
+//     background-color: white;
+//   }
