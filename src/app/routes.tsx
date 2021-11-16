@@ -2,12 +2,10 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Home from './views/pages/Home';
-import AboutPage from './views/pages/AboutPage';
 import NotFoundPage from './views/pages/NotFoundPage';
 
 // Dashboard Layout
 import Dashboard from './layouts/dashboard-layout/index';
-import SettingsAndPrivacy from './views/dashboard/settings-and-privacy';
 
 import { LinearProgress } from '@material-ui/core';
 
@@ -16,7 +14,11 @@ const Routes = () => {
     <Suspense fallback={<LinearProgress style={{ margin: '10rem' }} />}>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={AboutPage} />
+        <Route
+          path={'/about'}
+          component={lazy(() => import('./views/pages/AboutPage'))}
+          exact
+        />
 
         <Route
           path={'/dashboard'}
@@ -24,16 +26,27 @@ const Routes = () => {
             <Dashboard>
               <Switch>
                 <Route
-                  exact
                   path={path + '/'}
                   component={lazy(
                     () => import('./views/dashboard/dashboard-default-content'),
                   )}
-                />
-                <Route
                   exact
-                  path={path + '/settings-and-privacy'}
-                  component={SettingsAndPrivacy}
+                />
+
+                <Route
+                  path={path + '/list-products'}
+                  component={lazy(
+                    () => import('./views/dashboard/product/ProductListView'),
+                  )}
+                  exact
+                />
+
+                <Route
+                  path={path + '/create-product'}
+                  component={lazy(
+                    () => import('./views/dashboard/product/ProductCreateView'),
+                  )}
+                  exact
                 />
               </Switch>
             </Dashboard>
